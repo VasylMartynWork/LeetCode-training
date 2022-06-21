@@ -1,16 +1,7 @@
-# Definition for a binary tree node.
-class TreeNode:
-     def __init__(self, val=0, left=None, right=None):
-         self.val = val
-         self.left = left
-         self.right = right
+numbers = [1,2,3]
 class Solution:
-    def checkTree(self, root: TreeNode) -> bool:
-        if(root.left + root.right == root.val):
-            return True
-        else:
-            return False
-
-nodes = TreeNode(10, 6, 4)
-sol = Solution()
-print(sol.checkTree(nodes))
+    def getConcatenation(self, nums: list[int]) -> list[int]:
+        ans = nums + nums
+        return ans
+answ = Solution()
+print(answ.getConcatenation(numbers))
