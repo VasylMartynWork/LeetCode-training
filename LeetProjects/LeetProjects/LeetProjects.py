@@ -1,9 +1,16 @@
-num1 = 13
-num2 = 10
+# Definition for a binary tree node.
+class TreeNode:
+     def __init__(self, val=0, left=None, right=None):
+         self.val = val
+         self.left = left
+         self.right = right
 class Solution:
-    def sum(self, num1: int, num2: int) -> int:
-        summary = num1 + num2
-        return summary
-    
-sum = Solution()
-print(sum.sum(num1, num2))
+    def checkTree(self, root: TreeNode) -> bool:
+        if(root.left + root.right == root.val):
+            return True
+        else:
+            return False
+
+nodes = TreeNode(10, 6, 4)
+sol = Solution()
+print(sol.checkTree(nodes))
