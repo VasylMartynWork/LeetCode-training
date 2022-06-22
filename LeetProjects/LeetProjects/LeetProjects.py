@@ -10,7 +10,7 @@ class Solution:
                 i += 1
             return runningSim
         except:
-            return "Input array isn't correct"
+            return "Array isn't correct"
 
 def sumOfNumbers(numbes: list[int], iter: int) -> int:
     summ = 0
