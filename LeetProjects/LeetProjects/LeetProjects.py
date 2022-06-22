@@ -1,14 +1,22 @@
-numbers = [4,2,3,3,1,5]
+numbers = [1,2,3,4]
+
 class Solution:
-    def buildarray(self, nums: list[int]) -> list[int]:
-        ans = [0] * len(nums)
-        if(min(nums) >= 0 and max(nums) <= len(nums) - 1):
+    def runningSum(self, nums: list[int]) -> list[int]:
+        try:
+            runningSim = [0] * len(nums)
             i = 0
             while(i < len(nums)):
-                ans[i] = nums[nums[i]]
+                runningSim[i] = sumOfNumbers(nums, i)
                 i += 1
-            return ans
-        else:
-            return "Array isn't correct"
-sol = Solution()
-print(sol.buildarray(numbers))
+            return runningSim
+        except:
+            return "Input array isn't correct"
+
+def sumOfNumbers(numbes: list[int], iter: int) -> int:
+    summ = 0
+    j = 0
+    while(j <= iter):
+        summ += numbes[j]
+        j += 1
+
+    return summ
