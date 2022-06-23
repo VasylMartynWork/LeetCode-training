@@ -1,14 +1,10 @@
-adress = "1.1.1.1.1"
+account = [[1,5],[7,3],[3,5]]
 class Solution:
-    def defangIPaddr(self, address: str) -> str:
-        defanged = ""
-        if(address.count(".") == 3 and address[len(address) - 1] != "."):
-            for c in address:
-                if(c == "."): defanged += "[.]"
-                else: defanged += c
-        else:
-            return "This is not IPv4 address"
-        return defanged
+    def maximumWealth(self, accounts: list[list[int]]) -> int:
+        richest = 0
+        for acc in accounts:
+            if(sum(acc) > richest): richest = sum(acc)
+        return richest
 
 sol = Solution()
-print(sol.defangIPaddr(adress))
+print(sol.maximumWealth(account))
