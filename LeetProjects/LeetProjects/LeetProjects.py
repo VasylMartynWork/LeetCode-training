@@ -1,17 +1,18 @@
-nums = [2,5,1,3,4,7]
-d = 3
-
+numbers = [1,2,3]
 class Solution:
-    def shuffle(self, nums: list[int], n: int) -> list[int]:
-        nums1 = nums[:n]
-        nums2 = nums[n:2*n]
-        shuffled = []
+    def numIdenticalPairs(self, nums: list[int]) -> int:
         i = 0
-        while(i < len(nums1)):
-            shuffled.append(nums1[i])
-            shuffled.append(nums2[i])
+        j = 0
+        countOfPairs = 0
+        while(i < len(nums)):
+            j = 0
+            while(j < len(nums)):
+                if(nums[i] == nums[j] and i < j):
+                    countOfPairs += 1
+                j += 1
             i += 1
-        return shuffled
+        return countOfPairs
 
 sol = Solution()
-print(sol.shuffle(nums, d))
+print(sol.numIdenticalPairs(numbers))
+        
