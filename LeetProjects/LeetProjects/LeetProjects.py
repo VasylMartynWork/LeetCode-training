@@ -1,22 +1,13 @@
-numbers = [1,2,3,4]
-
+operation = ["++X","++X","X++"]
 class Solution:
-    def runningSum(self, nums: list[int]) -> list[int]:
-        try:
-            runningSim = [0] * len(nums)
-            i = 0
-            while(i < len(nums)):
-                runningSim[i] = sumOfNumbers(nums, i)
-                i += 1
-            return runningSim
-        except:
-            return "Array isn't correct"
+    def finalValueAfterOperations(self, operations: list[str]) -> int:
+        x = 0
+        for operat in operations:
+            if(operat == "x++" or operat == "++x" or operat == "X++" or operat == "++X"): x += 1
+            elif(operat == "x--" or operat == "--x" or operat == "X--" or operat == "--X"): x -= 1
+            else:
+                return "Array's element isn't correct"
+        return x
 
-def sumOfNumbers(numbes: list[int], iter: int) -> int:
-    summ = 0
-    j = 0
-    while(j <= iter):
-        summ += numbes[j]
-        j += 1
-
-    return summ
+sol = Solution()
+print(sol.finalValueAfterOperations(operation))
