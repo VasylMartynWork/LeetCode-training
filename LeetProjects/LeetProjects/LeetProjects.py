@@ -1,13 +1,14 @@
-operation = ["++X","++X","X++"]
+adress = "1.1.1.1.1"
 class Solution:
-    def finalValueAfterOperations(self, operations: list[str]) -> int:
-        x = 0
-        for operat in operations:
-            if(operat == "x++" or operat == "++x" or operat == "X++" or operat == "++X"): x += 1
-            elif(operat == "x--" or operat == "--x" or operat == "X--" or operat == "--X"): x -= 1
-            else:
-                return "Array's element isn't correct"
-        return x
+    def defangIPaddr(self, address: str) -> str:
+        defanged = ""
+        if(address.count(".") == 3 and address[len(address) - 1] != "."):
+            for c in address:
+                if(c == "."): defanged += "[.]"
+                else: defanged += c
+        else:
+            return "This is not IPv4 address"
+        return defanged
 
 sol = Solution()
-print(sol.finalValueAfterOperations(operation))
+print(sol.defangIPaddr(adress))
