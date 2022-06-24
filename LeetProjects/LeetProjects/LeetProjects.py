@@ -1,15 +1,17 @@
-number = 234
+num = [8,1,2,2,3]
+
 class Solution:
-    def subtractProductAndSum(self, n: int) -> int:
-        numMnoz = 1
-        numDod = 0
-        dig = list(str(n))
-        i = 0
-        while(i < len(dig)):
-            numMnoz *= int(dig[i])
-            numDod += int(dig[i])
-            i += 1
-        return numMnoz - numDod
+    def smallerNumbersThanCurrent(self, nums: list[int]) -> list[int]:
+        res = []
+        for num in nums:
+            i = 0
+            c = 0
+            while(i < len(nums)):
+                if(nums[i] < num):
+                    c += 1
+                i += 1
+            res.append(c)
+        return res
 
 sol = Solution()
-print(sol.subtractProductAndSum(number))
+print(sol.smallerNumbersThanCurrent(num))
