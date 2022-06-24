@@ -1,39 +1,15 @@
-bigs = 1
-mediu = 1
-smal = 0
-cartype = 1
+number = 234
+class Solution:
+    def subtractProductAndSum(self, n: int) -> int:
+        numMnoz = 1
+        numDod = 0
+        dig = list(str(n))
+        i = 0
+        while(i < len(dig)):
+            numMnoz *= int(dig[i])
+            numDod += int(dig[i])
+            i += 1
+        return numMnoz - numDod
 
-class ParkingSystem:
-
-    def __init__(self, big: int, medium: int, small: int):
-        self.big = big
-        self.medium = medium
-        self.small = small
-
-    def addCar(self, carType: int) -> bool:
-        if(carType == 1):
-            if(self.big > 0):
-                self.big -= 1
-                return True
-            else:
-                return False
-        elif(carType == 2):
-            if(self.medium > 0):
-                self.medium -= 1
-                return True
-            else:
-                return False
-        elif(carType == 3):
-            if(self.small > 0):
-                self.small -= 1
-                return True
-            else:
-                return False
-        else:
-            return ""
-
-par = ParkingSystem(bigs, mediu, smal)
-check = par.addCar(cartype)
-# Your ParkingSystem object will be instantiated and called as such:
-# obj = ParkingSystem(big, medium, small)
-# param_1 = obj.addCar(carType)
+sol = Solution()
+print(sol.subtractProductAndSum(number))
