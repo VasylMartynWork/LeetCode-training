@@ -1,25 +1,39 @@
-candie = [4,2,1,1,2]
-extraCandie = 1
+bigs = 1
+mediu = 1
+smal = 0
+cartype = 1
 
-class Solution:
-    def kidsWithCandies(self, candies: list[int], extraCandies: int) -> list[bool]:
-        n = len(candies)
-        result = [0] * n
-        newCandie = [0] * n
-        i = 0
-        j = 0
-        while(i < n):
-            newCandie[i] = candies[i] + extraCandies
-            j = 0
-            while(j < n):
-                if(newCandie[i] > candies[j] or newCandie[i] == candies[j]):
-                    result[i] = True
-                else:
-                    result[i] = False
-                    break
-                j += 1
-            i += 1
-        return result
+class ParkingSystem:
 
-sol = Solution()
-print(sol.kidsWithCandies(candie, extraCandie))
+    def __init__(self, big: int, medium: int, small: int):
+        self.big = big
+        self.medium = medium
+        self.small = small
+
+    def addCar(self, carType: int) -> bool:
+        if(carType == 1):
+            if(self.big > 0):
+                self.big -= 1
+                return True
+            else:
+                return False
+        elif(carType == 2):
+            if(self.medium > 0):
+                self.medium -= 1
+                return True
+            else:
+                return False
+        elif(carType == 3):
+            if(self.small > 0):
+                self.small -= 1
+                return True
+            else:
+                return False
+        else:
+            return ""
+
+par = ParkingSystem(bigs, mediu, smal)
+check = par.addCar(cartype)
+# Your ParkingSystem object will be instantiated and called as such:
+# obj = ParkingSystem(big, medium, small)
+# param_1 = obj.addCar(carType)
