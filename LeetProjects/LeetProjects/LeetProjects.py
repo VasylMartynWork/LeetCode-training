@@ -1,12 +1,8 @@
-encode = [1,2,3]
-firs = 1
+comm = "G()(al)"
 class Solution:
-    def decode(self, encoded: list[int], first: int) -> list[int]:
-        arr = [first]
-        for en in encoded:
-            arr.append(en ^ first)
-            first = en ^ first
-        return arr
+    def interpret(self, command: str) -> str:
+        com = command.replace("()", "o").replace("(", "").replace(")", "").replace("(al)", "al")
+        return com
 
 sol = Solution()
-print(sol.decode(encode, firs))
+print(sol.interpret(comm))
