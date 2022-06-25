@@ -1,17 +1,15 @@
-num = [8,1,2,2,3]
-
+numbe = 14
 class Solution:
-    def smallerNumbersThanCurrent(self, nums: list[int]) -> list[int]:
-        res = []
-        for num in nums:
-            i = 0
-            c = 0
-            while(i < len(nums)):
-                if(nums[i] < num):
-                    c += 1
-                i += 1
-            res.append(c)
-        return res
+    def numberOfSteps(self, num: int) -> int:
+        count = 0
+        while(num > 0):
+            if(num % 2 == 0):
+                num /= 2
+                count += 1
+            elif(num % 2 == 1):
+                num -= 1
+                count += 1
+        return count
 
 sol = Solution()
-print(sol.smallerNumbersThanCurrent(num))
+print(sol.numberOfSteps(numbe))
