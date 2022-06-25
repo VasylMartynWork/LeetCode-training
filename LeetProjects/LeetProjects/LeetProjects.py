@@ -1,15 +1,16 @@
-numbe = 14
+numbs = [1,2,3,4]
 class Solution:
-    def numberOfSteps(self, num: int) -> int:
-        count = 0
-        while(num > 0):
-            if(num % 2 == 0):
-                num /= 2
-                count += 1
-            elif(num % 2 == 1):
-                num -= 1
-                count += 1
-        return count
+    def decompressRLElist(self, nums: list[int]) -> list[int]:
+        i = 0
+        numbe = []
+        res = []
+        while(i < len(nums) / 2):
+            pair = nums[2 * i:2 * i + 2]
+            numbe.append([pair[1]] * pair[0])
+            i += 1
+        for n in numbe:
+            res += n
+        return res
 
 sol = Solution()
-print(sol.numberOfSteps(numbe))
+print(sol.decompressRLElist(numbs))
