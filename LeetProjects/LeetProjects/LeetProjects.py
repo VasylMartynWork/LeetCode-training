@@ -1,21 +1,24 @@
-st = "codeleet"
-indi = [4,5,6,7,0,2,1,3]
+st = "P7:Z7"
 class Solution:
-    def restoreString(self, s: str, indices: list[int]) -> str:
-        j = 0
-        sorInd = []
-        sorSt = ""
-        while(j < len(indices)):
-            it = 0
-            for ind in indices:
-                if(j == ind):
-                    break
-                it += 1
-            sorInd.append(it)
-            j += 1
-        for a in sorInd:
-            sorSt += s[a]
-        return sorSt
+    def cellsInRange(self, s: str) -> list[str]:
+        alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
+                    "S", "T", "U", "V", "W", "X", "Y", "Z"]
+        stri = s.split(":")
+        des = int(stri[1][1]) - int(stri[0][1])
+        i = alphabet.index(stri[0][0])
+        res = []
+        while(i <= alphabet.index(stri[1][0])):
+            j = int(stri[0][1])
+            while(j <= int(stri[1][1])):
+                stro = alphabet[i]
+                stro += str(j)
+                res.append(stro)
+                j += 1
+            if(des == 0):
+                i += des + 1
+            else:
+                i += 1
+        return res
 
 sol = Solution()
-print(sol.restoreString(st, indi))
+print(sol.cellsInRange(st))
