@@ -1,24 +1,17 @@
-items = [["phone","blue","pixel"],["computer","silver","lenovo"],["phone","gold","iphone"]]
-ruleKey = "color"
-ruleValue = "silver"
+n = 5
+start = 0
 
 class Solution:
-    def countMatches(self, items: list[list[str]], ruleKey: str, ruleValue: str) -> int:
+    def xorOperation(self, n: int, start: int) -> int:
+        nums = []
         i = 0
-        cou = 0
-        while(i < len(items)):
-            if(ruleKey == "type"):
-                check = 0
-            elif(ruleKey == "color"):
-                check = 1
-            elif(ruleKey == "name"):
-                check = 2
-            else:
-                return "Rule isn't true"
-            if(items[i][check] == ruleValue):
-                cou += 1
+        xor = 0
+        while(i < n):
+            nums.append(start + 2 * i)
+            xor = xor ^ nums[i]
             i += 1
-        return cou
+
+        return xor
 
 sol = Solution()
-print(sol.countMatches(items, ruleKey, ruleValue))
+print(sol.xorOperation(n, start))
