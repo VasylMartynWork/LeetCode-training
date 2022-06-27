@@ -1,18 +1,24 @@
-st = "Myself2 Me1 I4 and3"
+items = [["phone","blue","pixel"],["computer","silver","lenovo"],["phone","gold","iphone"]]
+ruleKey = "color"
+ruleValue = "silver"
+
 class Solution:
-    def sortSentence(self, s: str) -> str:
-        stri = s.split()
-        st = ""
-        i = 1
-        while(i <= len(stri)):
-            for el in stri:
-                if(int(el[len(el) - 1]) == i):
-                    st += el
-                    st = st.replace(f'{i}', '')
-                    if(i < len(stri)):
-                        st += " "
+    def countMatches(self, items: list[list[str]], ruleKey: str, ruleValue: str) -> int:
+        i = 0
+        cou = 0
+        while(i < len(items)):
+            if(ruleKey == "type"):
+                check = 0
+            elif(ruleKey == "color"):
+                check = 1
+            elif(ruleKey == "name"):
+                check = 2
+            else:
+                return "Rule isn't true"
+            if(items[i][check] == ruleValue):
+                cou += 1
             i += 1
-        return st
+        return cou
 
 sol = Solution()
-print(sol.sortSentence(st))
+print(sol.countMatches(items, ruleKey, ruleValue))
