@@ -1,21 +1,29 @@
-arr = [1,4,2,5,3]
+n = 14
 
 class Solution:
-    def sumOddLengthSubarrays(self, arr: list[int]) -> int:
-        j = 1
-        res = 0
-        while True:
-            if(j > len(arr)):
-                break
-            i = 0
-            while(i < len(arr)):
-                if(len(arr[i:i + j]) < j):
+    def numberOfMatches(self, n: int) -> int:
+        team = n
+        roun = 0
+        if n % 2 == 0:
+            while True:
+                if(team == 1):
                     break
-                a = arr[i:i + j]
-                res += sum(a)
-                i += 1
-            j += 2
-        return res
+                if(team % 2 == 1):
+                    roun += (team - 1) // 2
+                    team = (team - 1) // 2 + 1
+                else:
+                    roun += team // 2
+                    team = team // 2
+        else:
+            while True:
+                if(team == 1):
+                    break
+                if(team % 2 == 1):
+                    roun += (team - 1) // 2
+                else:
+                    roun += team // 2
+                team = (team - 1) // 2 + 1
+        return roun
 
 sol = Solution()
-print(sol.sumOddLengthSubarrays(arr))
+print(sol.numberOfMatches(n))
