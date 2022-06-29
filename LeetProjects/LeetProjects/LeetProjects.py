@@ -1,14 +1,19 @@
-nums = [1,3]
-k = 3
+word1 = ["ab", "c"]
+word2 = ["a", "bc"]
 
 class Solution:
-    def countKDifference(self, nums: list[int], k: int) -> int:
-        co = 0
-        for i in nums:
-            for j in nums:
-                if(i < j and abs(i - j) == k):
-                    co += 1
-        return co
+    def arrayStringsAreEqual(self, word1: list[str], word2: list[str]) -> bool:
+        wo1 = ""
+        wo2 = ""
+        for i in word1:
+            wo1 += i
+        for j in word2:
+            wo2 += j
+        if(wo1 == wo2):
+            return True
+        else:
+            return False
 
 sol = Solution()
-print(sol.countKDifference(nums, k))
+print(sol.arrayStringsAreEqual(word1, word2))
+
