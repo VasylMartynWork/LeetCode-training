@@ -1,18 +1,10 @@
-sentence = "mqzedwtwcdopqehzhcbphiwqpnmlmyzabqpfvigmyborlzcasgivklcuwbiilohvzysfmodeefagnmkexnaridkgxrhzedlsitbsetaofosptvcklkaqxasrcbmlabvwhzmwdglfkmqkkqdxucbwsizgiuchgeptmgslrvxzgaunoiifnlsltubxlbfnsxvyzhuqszvebvtcqurwnacsfavoupiqmbfwmuyingsfwbernknanqpyxkocstdtbxymvrdecnyffhipwlhyonvbrlqicdomgexguyvldoeazagmwxrnxwzifrcklotrbuoqiefotlkevubpguuicvgucupegeswtcgzubzihqtfvhxdrxxnudiccqhtqucoogpdekbosxacfvtlmvqowvwqteimsisnqvxikonvspfkheruovqmkbfnefqtduynoqydkmgopwwtloshegflixsihomiccfofgqbghqxxsyuedgdnahaqbazhxxtsfbadwxaxhcnxwspmkxwbazqxpkrghoegwbiblwwkmgzbymsvmnrebgrzkpwunxtkruuenxguckaxqmvkstdkexlvaslalfwxivrswhgrvhknzwcmueqqlxgkklbmefchcdtxqcwarkvwwqulfmofnsvmrbxxlsaiqnzxrsffapqwpllndqnsmbgseaeipmrthgwrnrplgufzwahkzxhckzidiokttoclvvmowtreafspznomsouqzttspvoxtkzmxacnmxhzfhhtyrbgeroloeoncpikhktfmfhueahppzeekfaqvtslivpvlmuskdzrofdtgpnmpfflsymkggpraulvpffkbfvrxdhirubsidzfwvwbriifntgdmkuodwhkbmqxkkagcooitylwqgxqvmnoultivwpmilorbtwpcxzgbtxpzhqhuqhzmtqyfpbinmktabcwisquhn"
+nums = [5,6,2,7,4]
 
 class Solution:
-    def checkIfPangram(self, sentence: str) -> bool:
-        alph = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",
-                "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-        co = 0
-        for i in alph:
-            exist = i in sentence
-            if(exist == True):
-                co = 1
-            else:
-                return False
-        if(co == 1):
-            return True
+    def maxProductDifference(self, nums: list[int]) -> int:
+        nums.sort()
+        res = (nums[len(nums) - 1] * nums[len(nums) - 2]) - (nums[0] * nums[1])
+        return res
 
 sol = Solution()
-print(sol.checkIfPangram(sentence))
+print(sol.maxProductDifference(nums))
