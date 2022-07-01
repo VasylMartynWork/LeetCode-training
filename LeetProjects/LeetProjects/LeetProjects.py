@@ -1,17 +1,22 @@
-s = "Hello how are you Contestant"
-k = 4
+rings = "G4"
 
 class Solution:
-    def truncateSentence(self, s: str, k: int) -> str:
-        st = s.split()
+    def countPoints(self, rings: str) -> int:
+        rg = ["R", "G", "B"]
         i = 0
-        stri = ""
-        while(i < k):
-            stri += st[i]
-            if(i < k - 1):
-                stri += " "
+        res = 0
+        while(i < 10):
+            co = 0
+            for j in rg:
+                exist = f"{j}{i}" in rings
+                if(exist == True):
+                    co += 1
+                else:
+                    co = 0
+            if(co == 3):
+                res += 1
             i += 1
-        return stri
+        return res
 
 sol = Solution()
-print(sol.truncateSentence(s, k))
+print(sol.countPoints(rings))
