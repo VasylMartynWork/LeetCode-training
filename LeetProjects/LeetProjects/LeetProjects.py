@@ -1,20 +1,27 @@
-s = "a1c1e1"
+mat = [[1,1,1,1],
+       [1,1,1,1],
+       [1,1,1,1],
+       [1,1,1,1]]
 
 class Solution:
-    def replaceDigits(self, s: str) -> str:
-        alph = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r",
-                "s", "t", "u", "v", "w", "x", "y", "z"]
+    def diagonalSum(self, mat: list[list[int]]) -> int:
         i = 0
-        res = ""
-        while(i < len(s)):
-            st = s[i:i+2]
-            res += st[0]
-            try:
-                res += alph[alph.index(st[0]) + int(st[1])]
-            except:
-                pass
-            i += 2
-        return res
+        j = len(mat) - 1
+        res = 0
+        res2 = 0
+        while(i < len(mat)):
+            res += mat[i][i]
+            i += 1
+        i = 0
+        while(i < len(mat)):
+            if(i + 1 == (len(mat) + 1) / 2):
+                i += 1
+                j -= 1
+                continue
+            res2 += mat[i][j]
+            i += 1
+            j -= 1
+        return res + res2
 
 sol = Solution()
-print(sol.replaceDigits(s))
+print(sol.diagonalSum(mat))
