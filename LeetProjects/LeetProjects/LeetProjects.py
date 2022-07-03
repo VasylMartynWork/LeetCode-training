@@ -1,27 +1,21 @@
-mat = [[1,1,1,1],
-       [1,1,1,1],
-       [1,1,1,1],
-       [1,1,1,1]]
+s = "Let's take LeetCode contest"
 
 class Solution:
-    def diagonalSum(self, mat: list[list[int]]) -> int:
-        i = 0
-        j = len(mat) - 1
-        res = 0
-        res2 = 0
-        while(i < len(mat)):
-            res += mat[i][i]
-            i += 1
-        i = 0
-        while(i < len(mat)):
-            if(i + 1 == (len(mat) + 1) / 2):
-                i += 1
-                j -= 1
-                continue
-            res2 += mat[i][j]
-            i += 1
-            j -= 1
-        return res + res2
+    def reverseWords(self, s: str) -> str:
+        arr = s.split()
+        res = ""
+        k = 0
+        for i in arr:
+            k += 1
+            a = len(i) - 1
+            resa = ""
+            while(a >= 0):
+                resa += i[a]
+                a -= 1
+            res += resa
+            if(k < len(arr)):
+                res += " "
+        return res
 
 sol = Solution()
-print(sol.diagonalSum(mat))
+print(sol.reverseWords(s))
