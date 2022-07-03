@@ -1,20 +1,20 @@
-image = [[1,1,0],[1,0,1],[0,0,0]]
+s = "a1c1e1"
 
 class Solution:
-    def flipAndInvertImage(self, image: list[list[int]]) -> list[list[int]]:
-        res = []
-        for i in image:
-            i.reverse()
-            resu = []
-            for j in i:
-                if(j == 1):
-                    j = 0
-                elif(j == 0):
-                    j = 1
-                
-                resu.append(j)
-            res.append(resu)
+    def replaceDigits(self, s: str) -> str:
+        alph = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r",
+                "s", "t", "u", "v", "w", "x", "y", "z"]
+        i = 0
+        res = ""
+        while(i < len(s)):
+            st = s[i:i+2]
+            res += st[0]
+            try:
+                res += alph[alph.index(st[0]) + int(st[1])]
+            except:
+                pass
+            i += 2
         return res
 
 sol = Solution()
-print(sol.flipAndInvertImage(image))
+print(sol.replaceDigits(s))
