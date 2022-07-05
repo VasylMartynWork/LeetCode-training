@@ -1,15 +1,11 @@
-words = ["abc","car","ada","racecar","cool"]
+gain = [-5,1,5,0,-7]
 
 class Solution:
-    def firstPalindrome(self, words: list[str]) -> str:
-        for i in words:
-            a = list(i)
-            b = []
-            b += a
-            b.reverse()
-            if(a == b):
-                return i
-        return ""
-            
+    def largestAltitude(self, gain: list[int]) -> int:
+        res = []
+        for i in range(len(gain) + 1):
+            res.append(sum(gain[0:i]))
+        return max(res)
+
 sol = Solution()
-print(sol.firstPalindrome(words))
+print(sol.largestAltitude(gain))
