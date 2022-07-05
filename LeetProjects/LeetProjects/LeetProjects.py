@@ -1,13 +1,15 @@
-rectangles = [[2,3],[3,7],[4,3],[3,7]]
+words = ["abc","car","ada","racecar","cool"]
 
 class Solution:
-    def countGoodRectangles(self, rectangles: list[list[int]]) -> int:
-        res = []
-        for i in rectangles:
-            maxi = min(i)
-            res.append(maxi)
-        maxim = max(res)
-        return res.count(maxim)
-
+    def firstPalindrome(self, words: list[str]) -> str:
+        for i in words:
+            a = list(i)
+            b = []
+            b += a
+            b.reverse()
+            if(a == b):
+                return i
+        return ""
+            
 sol = Solution()
-print(sol.countGoodRectangles(rectangles))
+print(sol.firstPalindrome(words))
