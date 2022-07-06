@@ -1,11 +1,10 @@
-gain = [-5,1,5,0,-7]
+nums = [1,5,4,5]
 
 class Solution:
-    def largestAltitude(self, gain: list[int]) -> int:
-        res = []
-        for i in range(len(gain) + 1):
-            res.append(sum(gain[0:i]))
-        return max(res)
+    def maxProduct(self, nums: list[int]) -> int:
+        nums.sort()
+        b = nums[len(nums) - 1]
+        return (max(nums) - 1) * (nums[len(nums) - 2] - 1)
 
 sol = Solution()
-print(sol.largestAltitude(gain))
+print(sol.maxProduct(nums))
