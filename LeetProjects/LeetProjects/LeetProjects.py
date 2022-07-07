@@ -1,10 +1,15 @@
-nums = [1,5,4,5]
+nums = [1,2,5,2,3]
+target = 2
 
 class Solution:
-    def maxProduct(self, nums: list[int]) -> int:
+    def targetIndices(self, nums: list[int], target: int) -> list[int]:
         nums.sort()
-        b = nums[len(nums) - 1]
-        return (max(nums) - 1) * (nums[len(nums) - 2] - 1)
+        res = []
+        for i in range(len(nums)):
+            if(nums[i] == target):
+                res.append(i)
+
+        return res
 
 sol = Solution()
-print(sol.maxProduct(nums))
+print(sol.targetIndices(nums, target))
