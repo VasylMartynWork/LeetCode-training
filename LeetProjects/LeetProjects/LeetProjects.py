@@ -1,15 +1,23 @@
-nums = [1,2,5,2,3]
-target = 2
+s = "eOEvoOAfOIIi"
 
 class Solution:
-    def targetIndices(self, nums: list[int], target: int) -> list[int]:
-        nums.sort()
-        res = []
-        for i in range(len(nums)):
-            if(nums[i] == target):
-                res.append(i)
-
-        return res
+    def halvesAreAlike(self, s: str) -> bool:
+        vowel = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+        a = s[0:int(len(s) / 2)]
+        b = s[int(len(s) / 2):len(s)]
+        one = 0
+        two = 0
+        for i in vowel:
+            yea = i in a
+            yae = i in b
+            if(yea == True):
+                one += a.count(i)
+            if(yae == True):
+                two += b.count(i)
+        if(one == two):
+            return True
+        else:
+            return False
 
 sol = Solution()
-print(sol.targetIndices(nums, target))
+print(sol.halvesAreAlike(s))
