@@ -1,17 +1,14 @@
-nums = [7,5,6,8,3]
+words = ["pay","attention","practice","attend"]
+pref = "at"
 
 class Solution:
-    def findGCD(self, nums: list[int]) -> int:
-        mi = min(nums)
-        ma = max(nums)
-        grea = 0
-        i = 1
+    def prefixCount(self, words: list[str], pref: str) -> int:
+        co = 0
+        for i in words:
+            if(i[0:len(pref)] == pref):
+                co += 1
 
-        while(i <= mi):
-            if(mi % i == 0 and ma % i == 0):
-                grea = i
-            i += 1
-        return grea
+        return co
 
 sol = Solution()
-print(sol.findGCD(nums))
+print(sol.prefixCount(words, pref))
